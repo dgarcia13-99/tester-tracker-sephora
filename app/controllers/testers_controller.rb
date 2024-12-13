@@ -6,7 +6,7 @@ class TestersController < ApplicationController
   # GET /testers or /testers.json
 
   def welcome
-    if current_employee == nil
+    if current_employee.nil?
       render "welcome"
     else
       redirect_to testers_path
@@ -14,7 +14,7 @@ class TestersController < ApplicationController
   end
 
   def index
-    @testers = Tester.current_shop(current_employee).not_trashed.not_onstage.order(created_at: "DESC")
+    @testers = Tester.all_testers_backstage(current_employee)
     @q = @testers.ransack(params[:q])
     @searchable_testers = @q.result.includes(:product).page(params[:page]).per(6)
 
@@ -107,7 +107,7 @@ class TestersController < ApplicationController
   end
 
   def trashed
-    @testers = Tester.current_shop(current_employee).trashed.order(created_at: "DESC").page(params[:page]).per(6)
+    @testers = Tester.trashed_at_shop(current_employee).page(params[:page]).per(6)
   end
 
   # /makeup
@@ -144,9 +144,9 @@ class TestersController < ApplicationController
 
   # /manage_testers
   def manage
-    @onstage_testers = Tester.current_shop(current_employee).onstage.not_trashed.order(created_at: "DESC").page(params[:onstage_page]).per(6)
+    @onstage_testers = Tester.onstage_not_trashed(current_employee).page(params[:onstage_page]).per(6)
 
-    @backstage_testers = Tester.current_shop(current_employee).not_onstage.not_trashed.order(created_at: "DESC").page(params[:backstage_page]).per(6)
+    @backstage_testers = Tester.backstage_not_trashed(current_employee).page(params[:backstage_page]).per(6)
 
     respond_to do |format|
       format.html
