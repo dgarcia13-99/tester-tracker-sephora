@@ -1,0 +1,18 @@
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<%=
+  display_meta_tags({
+    site: "Tester Tracker",
+    image: asset_url('sephora_logo.png'),
+    description: "Manage Sephora's Product Testers",
+    og: {
+      title: "Tester Tracker",
+      image: asset_url('sephora_logo.png'),
+      description: "Manage Sephora's Product Testers",
+      site_name: "Tester Tracker"
+    },
+  })
+%>
+
+<%= csrf_meta_tags %>
+<%= csp_meta_tag %>
