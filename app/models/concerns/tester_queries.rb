@@ -25,7 +25,7 @@ module TesterQueries
     end
 
     def trashed_at_shop(employee)
-      current_shop(employee).trashed.order(created_at: "DESC")
+      current_shop(employee).trashed.order(trashed_at: "DESC")
     end
 
     def monthly_trashed_testers(employee)
