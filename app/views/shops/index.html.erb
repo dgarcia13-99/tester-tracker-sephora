@@ -1,14 +1,16 @@
 <p style="color: green; text-align: center;"><%= notice %></p>
 
-<h1>Shops</h1>
+<header>
+  <h1>Shops</h1>
+</header>
 
-<div id="shops">
+<section id="shops">
   <% @shops.each do |shop| %>
     <%= render shop %>
     <p>
       <%= link_to "Show this shop", shop %>
     </p>
   <% end %>
-</div>
+</section>
 
 <%= link_to "New shop", new_shop_path %>

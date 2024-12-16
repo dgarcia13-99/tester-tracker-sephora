@@ -1,4 +1,4 @@
-<div class= "d-flex flex-column align-items-center justify-content-center">
+<section class= "d-flex flex-column align-items-center justify-content-center">
 
   <%= form_for(@tester) do |f| %>
     <% if @tester.errors.any? %>
@@ -11,6 +11,7 @@
       </div>
     <% end %>
 
+    <article>
     <p class="text-center"> <strong><%= @tester.product.name %></strong></p>
 
     <div class="form-inputs">
@@ -33,6 +34,8 @@
     <p class="text-center">
       <%= @tester.trashed_at %>
     </p>
+    
+  <article>
 
   <% end %>
-</div>
+</section>
