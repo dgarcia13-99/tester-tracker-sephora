@@ -1,10 +1,10 @@
 <p style="color: green; text-align: center;"><%= notice %></p>
 
-<div style="margin: 20px; padding:10px; text-align:center;">
+<header style="margin: 20px; padding:10px; text-align:center;">
   <h1>Manage Testers</h1>
-</div>
+</header>
 
-<div class="container">
+<section class="container">
   <div class="btn-group" role="group" aria-label="Basic radio toggle button group" style="display: flex;
     justify-content: center; align-items: center;">
     <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
@@ -13,11 +13,13 @@
     <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
     <label class="btn btn-outline-dark" for="btnradio2">Approve Testers</label>
   </div>
-</div>
+</section>
 
-<%= render "testers/backstage_testers" %>
+<main>
+  <%= render "testers/backstage_testers" %>
+</main>
 
-<!--Backstage and Onstage button functionality in 'Manage Testers' view-->
+<!--'Backstage Testers' and 'Approve Testers' button functionality in 'Manage Testers' view-->
 <script>
   $("#btnradio2").click(function() {
    $(".backstage_testers").html('<%= j render "onstage_testers" %>');

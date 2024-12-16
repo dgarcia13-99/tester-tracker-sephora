@@ -1,11 +1,11 @@
 <div class="container">
-  <div class="row justify-content-center">
-    <div class="col-sm-4 col-lg-4 mb-4">
-      <div class="card" role="group">
+  <main class="row justify-content-center">
+    <article class="col-sm-4 col-lg-4 mb-4">
+      <section class="card" role="group">
         <div id="<%= dom_id tester %>">
-          <div class="card-header text-center">
+          <header class="card-header text-center">
             <strong><%= tester.product.name %></strong>
-          </div>
+          </header>
 
           <div class="card-body d-flex flex-column align-items-center justify-content-center">
 
@@ -14,25 +14,20 @@
             <p style="text-align: center;">
               Need to make changes to this tester?
             </p>
-
             <div class="d-flex justify-content-center">
               <p>
                 <%= link_to "Edit this tester", edit_tester_path(@tester), class: "btn btn-outline-secondary", style: "margin-right:10px;", aria: { label: "Edit details for #{tester.product.name} tester" } %>
               </p>
-
               <p>
                 <%= button_to "Delete this tester", @tester, method: :delete, class: "btn btn-outline-danger", aria: { label: "Delete #{tester.product.name} tester" } %>
               </p>
-
             </div>
-
             <p>
               <%= link_to "Back to Home Page", testers_path, class: "btn btn-dark", aria: { label: "Go back to the home page" }%>
             </p>
-
           </div>
         </div>
-      </div>
-    </div>
-  </div>
+      </section>
+    </article>
+  </main>
 </div>

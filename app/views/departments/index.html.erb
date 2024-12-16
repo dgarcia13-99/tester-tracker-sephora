@@ -1,14 +1,16 @@
 <p style="color: green; text-align: center;"><%= notice %></p>
 
-<h1>Departments</h1>
+<header>
+  <h1>Departments</h1>
+</header>
 
-<div id="departments">
+<section id="departments">
   <% @departments.each do |department| %>
     <%= render department %>
     <p>
       <%= link_to "Show this department", department %>
     </p>
   <% end %>
-</div>
+</section>
 
 <%= link_to "New department", new_department_path %>

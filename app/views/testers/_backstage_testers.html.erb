@@ -1,8 +1,8 @@
-<div class="backstage_testers" role="region">
-  <div class="container" style="margin-top: 30px; position: relative">
+<section class="backstage_testers" role="region">
+  <main class="container" style="margin-top: 30px; position: relative">
     <div class="row" data-masonry='{"percentPosition": true }'>
       <% @backstage_testers.each do |tester| %>
-        <div class="col-sm-6 col-lg-4 mb-4">
+        <article class="col-sm-6 col-lg-4 mb-4">
           <div class="card h-100 border-secondary mb-3" role="group">
             <div class="card-header border-dark" style="text-align:center; padding: 10px;">
               <strong><%= tester.product.name %></strong>
@@ -29,11 +29,11 @@
 
             </div>
           </div>
-        </div>
+        </article>
       <% end %>
       <div style="text-align: center;">
         <%= paginate @backstage_testers, param_name: :backstage_page, aria_label: "Pagination for backstage testers" %>
       </div>
     </div>
-  </div>
-</div>
+  </main>
+</section>
