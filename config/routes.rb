@@ -22,4 +22,7 @@ Rails.application.routes.draw do
   patch "/trash/:id(.:format)" => "testers#trash", as: :trash
   get "/trashed_testers" => "testers#trashed", as: :trashed
 
+  get "/monthly_chart_data" => "testers#monthly_chart_data", as: 'monthly_chart_data'
+  get "/yearly_chart_data" => "testers#yearly_chart_data", as: 'yearly_chart_data'
+
 end

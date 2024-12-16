@@ -1,18 +1,18 @@
 class TestersController < ApplicationController
   skip_before_action :authenticate_employee!, only: [:welcome]
-  before_action :set_tester, only: %i[ show edit update destroy trash ]
+  before_action :set_tester, only: %i[show edit update destroy trash]
   before_action(except: [:welcome]) { authorize(@tester || Tester) }
 
-  # GET /testers or /testers.json
-
+  # GET /welcome
   def welcome
     if current_employee.nil?
-      render "welcome"
+      render "welcome" 
     else
       redirect_to testers_path
     end
   end
 
+  # GET /testers or /testers.json
   def index
     @testers = Tester.all_testers_backstage(current_employee)
     @q = @testers.ransack(params[:q])
@@ -107,7 +107,17 @@ class TestersController < ApplicationController
   end
 
   def trashed
-    @testers = Tester.trashed_at_shop(current_employee).page(params[:page]).per(6)
+    @testers = Tester.trashed_at_shop(current_employee).page(params[:page]).per(4)
+  end
+
+  def monthly_chart_data
+    @monthly_count = Tester.monthly_trashed_testers(current_employee)
+    render json: @monthly_count
+  end
+
+  def yearly_chart_data
+    @yearly_count = Tester.yearly_trashed_testers(current_employee)
+    render json: @yearly_count
   end
 
   # /makeup

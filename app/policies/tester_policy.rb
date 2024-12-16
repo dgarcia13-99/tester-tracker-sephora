@@ -40,6 +40,14 @@ class TesterPolicy < ApplicationPolicy
     employee.role.title = "Operations Associate" || employee.admin?
   end
 
+  def monthly_chart_data?
+    employee.role.title = "Operations Associate" || employee.admin?
+  end
+
+  def yearly_chart_data?
+    monthly_chart_data?
+  end
+
   def makeup?
     true
   end
