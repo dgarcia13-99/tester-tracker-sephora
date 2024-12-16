@@ -28,6 +28,30 @@ module TesterQueries
       current_shop(employee).trashed.order(created_at: "DESC")
     end
 
+    def monthly_trashed_testers(employee)
+      start_of_month = Time.current.beginning_of_month
+      end_of_month = Time.current.end_of_month
+
+      joins(:product)
+      .current_shop(employee)
+      .where.not(trashed_at: nil)
+      .where(trashed_at: start_of_month..end_of_month)
+      .group("products.name")
+      .count
+    end
+
+    def yearly_trashed_testers(employee)
+      start_of_year = Time.current.beginning_of_year
+      end_of_year = Time.current.end_of_year
+
+      joins(:product)
+      .current_shop(employee)
+      .where.not(trashed_at: nil) 
+      .where(trashed_at: start_of_year..end_of_year) 
+      .group_by_month("trashed_at", format: "%b %Y")
+      .count
+    end
+    
     def onstage_not_trashed(employee)
       current_shop(employee).onstage.not_trashed.order(created_at: "DESC")
     end

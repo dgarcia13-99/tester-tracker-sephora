@@ -66,6 +66,12 @@ gem 'cssbundling-rails'
 
 gem 'meta-tags'
 
+# Add charts and graphs
+gem 'chartkick'
+
+# Enhance querying
+gem 'groupdate'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
