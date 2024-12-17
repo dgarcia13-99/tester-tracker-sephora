@@ -122,34 +122,22 @@ class TestersController < ApplicationController
 
   # /makeup
   def makeup
-    @department = "Makeup"
-    @testers = Tester.by_department(current_employee, "Makeup").page(params[:page]).per(6)
-
-    render "department_testers"
+    department_testers("Makeup")
   end
 
   # /skincare
   def skincare
-    @department = "Skincare"
-    @testers = Tester.by_department(current_employee, "Skincare").page(params[:page]).per(6)
-
-    render "department_testers"
+    department_testers("Skincare")
   end
 
   # /hair
   def hair
-    @department = "Hair"
-    @testers = Tester.by_department(current_employee, "Hair").page(params[:page]).per(6)
-
-    render "department_testers"
+    department_testers("Hair")
   end
 
   # /fragrance
   def fragrance
-    @department = "Fragrance"
-    @testers = Tester.by_department(current_employee, "Fragrance").page(params[:page]).per(6)
-
-    render "department_testers"
+    department_testers("Fragrance")
   end
 
   # /manage_testers
@@ -174,5 +162,11 @@ class TestersController < ApplicationController
   # Only allow a list of trusted parameters through.
   def tester_params
     params.require(:tester).permit(:product_id, :shop_id, :condition, :location, :trashed_at)
+  end
+
+  def department_testers(department)
+    @department = department
+    @testers = Tester.by_department(current_employee, department).page(params[:page]).per(6)
+    render "department_testers"
   end
 end
