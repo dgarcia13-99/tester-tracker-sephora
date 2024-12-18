@@ -1,5 +1,5 @@
-<section class="container" style="margin-top: 150px;">
-  <div style="text-align: center;">
+<section class="container search-container">
+  <div class="search-body">
     <header >
       <h1>Search Results</h1>
     </header>
@@ -8,8 +8,8 @@
       <div class="row d-flex justify-content-center">
         <% @searchable_testers.each do |tester| %>
           <article class="col-md-4">
-            <div class="card mb-4" style="width: 25rem;">
-              <img class="card-img-top mx-auto" src="<%= image_path(tester.product.image) %>" alt="Image of <%= tester.product.name %>" style="width: 200px; height: 200px; margin-top:20px;">
+            <div class="card mb-4 search-card">
+              <img class="card-img-top mx-auto" style="width: 200px; height: 200px; margin-top: 20px;" src="<%= image_path(tester.product.image) %>" alt="Image of <%= tester.product.name %>">
               <div class="card-body">
                 <h5 class="card-title"><%= tester.product.name %></h5>
                 <p class="card-text">
@@ -24,13 +24,13 @@
         <% end %>
       </div>
 
-      <div class="pagination-container" style="text-align: center; margin-top: 20px;">
+      <div class="pagination-container">
         <%= paginate @searchable_testers, aria_label: "Pagination for available testers" %>
       </div>
 
       <%= link_to "Back to Search", testers_path, class: "btn btn-dark mt-3", aria: { label: "Go back to the tester search page" }  %>
     <% else %>
-      <p style="color: red;">No results found.</p>
+      <p class="no-results">No results found.</p>
       <%= link_to "Back to Search", testers_path, class: "btn btn-dark mt-3", aria: { label: "Go back to the tester search page" } %>
     <% end %>
   </div>

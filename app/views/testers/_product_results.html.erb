@@ -4,13 +4,13 @@
       <% @products.each do |product| %>
         <article class="col-sm-4 col-lg-4 mb-4 d-flex flex-column align-items-center justify-content-center">
           <div class="product-card" role="group">
-            <header class="text-center" style="padding: 10px;">
+            <header class="text-center product-header">
               <strong>Name:</strong>
               <%= product.name %>
             </header>
             <div class="card-body d-flex flex-column align-items-center justify-content-center">
               <%= image_tag product.image, width: "200", height: "200", alt: "Image of #{product.name}"%>
-              <p style= "margin-top: 10px;">
+              <p class="product-sku">
                 <strong>SKU:</strong>
                 <%= product.sku %>
               </p>
@@ -37,6 +37,6 @@
   </main>
 </section>
 
-<div style="text-align: center;">
+<div>
   <%= paginate @products, aria_label: "Pagination for products" %>
 </div>

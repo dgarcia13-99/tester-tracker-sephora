@@ -2,22 +2,22 @@
   <div class="row">
     <section class="col-md-6">
       <header>
-        <h2 class="text-center" style="color: #555; margin-top: 20px;">Testers Trashed This Month</h2>
+        <h2 class="text-center trashed-header">Testers Trashed This Month</h2>
       </header>
-      <div class="d-flex justify-content-center" style="margin-bottom:50px;">
+      <div class="d-flex justify-content-center trashed-chart">
         <%= pie_chart monthly_chart_data_path, height: "400px", width: "400px" %>
       </div>
 
       <header>
-        <h2 class="text-center" style="color: #555;">Monthly Trend of Testers Used in 2024</h2>
+        <h2 class="text-center monthly-header">Monthly Trend of Testers Used in 2024</h2>
       </header>
-      <div class="d-flex justify-content-center" style="margin-bottom:50px;">
+      <div class="d-flex justify-content-center trashed-chart">
         <%= line_chart yearly_chart_data_path, height: "400px", width: "400px" %>
       </div>
     </section>
 
     <section class="col-md-6">
-      <header style="text-align: center;">
+      <header class="trashed-body-header">
         <h1>Trashed Testers</h1>
       </header>
       <div class="row g-4" data-masonry='{"percentPosition": true }'>

@@ -1,6 +1,6 @@
 <div class="container">
   <main class="row justify-content-center">
-    <article class="col-sm-4 col-lg-4 mb-4" style="margin-top:20px;">
+    <article class="col-sm-4 col-lg-4 mb-4 tester-body">
       <section class="card" role="group">
         <div id="<%= dom_id tester %>">
           <header class="card-header text-center">
@@ -11,12 +11,12 @@
 
             <%= render "testers/tester_card", tester: tester %>
 
-            <p style="text-align: center;">
+            <p class="tester-buttons">
               Need to make changes to this tester?
             </p>
             <div class="d-flex justify-content-center">
               <p>
-                <%= link_to "Edit this tester", edit_tester_path(@tester), class: "btn btn-outline-secondary", style: "margin-right:10px;", aria: { label: "Edit details for #{tester.product.name} tester" } %>
+                <%= link_to "Edit this tester", edit_tester_path(@tester), class: "btn btn-outline-secondary edit-button", aria: { label: "Edit details for #{tester.product.name} tester" } %>
               </p>
               <p>
                 <%= button_to "Delete this tester", @tester, method: :delete, class: "btn btn-outline-danger", aria: { label: "Delete #{tester.product.name} tester" } %>
