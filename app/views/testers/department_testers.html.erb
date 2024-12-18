@@ -1,13 +1,13 @@
-<header style="margin: 20px; padding:10px; text-align:center;">
+<header class= "department-header">
   <h1><%= @department %> Testers</h1>
 </header>
 
-<section class="container" style="margin-top: 30px; position: relative">
+<section class="container tester-container">
   <main class="row" data-masonry='{"percentPosition": true }'>
     <% @testers.each do |tester| %>
       <article class="col-sm-6 col-lg-4 mb-4">
         <div class="card h-100 border-secondary mb-3" role="group">
-          <header class="card-header border-dark" style="text-align:center; background-color: #cccccc; padding: 10px;">
+          <header class="card-header border-dark department-card-header">
             <strong><%= tester.product.name %></strong>
           </header>
 
@@ -18,7 +18,7 @@
             <div class="d-flex justify-content-center">
               <% if current_employee.admin? == false %>
                 <p>
-                  <%= link_to "Edit this tester", edit_tester_path(tester), class: "btn btn-outline-secondary", style: "margin-right:10px;", aria: { label: "Edit details for #{tester.product.name} tester" } %>
+                  <%= link_to "Edit this tester", edit_tester_path(tester), class: "btn btn-outline-secondary edit-button", aria: { label: "Edit details for #{tester.product.name} tester" } %>
                 </p>
               <% end %>
 
@@ -35,6 +35,6 @@
   </main>
 </section>
 
-<div class="pagination-container" style="text-align: center;">
+<div>
   <%= paginate @testers, aria_label: "Pagination for testers" %>
 </div>

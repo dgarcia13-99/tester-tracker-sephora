@@ -1,27 +1,26 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="padding:20px;">
   <%= link_to 'Tester Tracker', testers_path, class: "navbar-brand" %>
-  <%= link_to 'Log In', new_employee_session_path, class: "btn btn-light ms-auto", style: "border-radius:30px; padding: 7px; width: 90px;"%>
+  <%= link_to 'Log In', new_employee_session_path, class: "btn btn-light ms-auto welcome-log-in"%>
 </nav>
 
-<section class="container text-center overlay-content" style="margin-top:40px;">
+<section class="container text-center overlay-content welcome-intro">
   <header>
     <h1>Introducing, Tester Tracker</h1>
   </header>
   <p>Track, Manage, and Simplify Sephora's Testers</p>
-  <%= link_to 'Get Started', new_employee_registration_path, class: "btn btn-dark", style: "border-radius:30px; padding: 10px;"%>
+  <%= link_to 'Get Started', new_employee_registration_path, class: "btn btn-dark get-started"%>
 </section>
 
-<article class="container text-center" style="border: 3px solid black; border-radius:25px; margin-top:50px; margin-bottom:80px; max-width:900px; height:500px; padding:0;">
-  <iframe 
+<article class="container text-center welcome-video-container" style="max-width: 900px; height: 500px; padding: 0;">
+  <iframe class="welcome-video-frame"
     src="https://www.youtube.com/embed/y00JLeVqQlQ?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&showinfo=0" 
     frameborder="0" 
     allow="accelerometer; autoplay; loop; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-    allowfullscreen
-    style="width: 100%; height: 100%; border-radius: 20px;">
+    allowfullscreen>
   </iframe>
 </article>
 
-<section class="container text-center" style="margin-top:30px;">
+<section class="container text-center welcome-help">
   <header>
     <h2 class="mb-5">How Tester Tracker Helps You</h2>
   </header>
@@ -57,7 +56,7 @@
   </div>
 </section>
 
-<section class="container text-center" style="margin-top:80px; max-width:800px;">
+<section class="container text-center welcome-quotes">
   <header>
     <h2 class="mb-5">What Our Users Say</h2>
   </header>
@@ -77,6 +76,6 @@
   </div>
 </section>
 
-<footer class="footer text-center" style="margin-top:80px;">
+<footer class="footer text-center welcome-footer">
   <p>&copy; 2024 Tester Tracker</p>
 </footer>
